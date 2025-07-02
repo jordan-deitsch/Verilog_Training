@@ -29,14 +29,15 @@ module led_blinker(
     
     localparam CLK_FREQ_HZ = 12000000;
     localparam CLK_DIVIDE = 6000000;
+    localparam COUNTER_WIDTH = $clog2(CLK_DIVIDE);
     
     reg [3:0] led_buff = 4'h0;
-    reg [31:0] counter = 32'h0;
+    reg [COUNTER_WIDTH-1:0] counter = 32'h0;
     
     assign led_o = led_buff;
     
     always @(posedge clk_i) begin
-        if(rst_i == 1'b0) begin
+        if(rst_i == 1'b1) begin
             led_buff <= 4'b0;
             counter <= 32'h0;
         end else begin
