@@ -29,6 +29,7 @@ module led_glow
     
     localparam CLK_FREQ_HZ = 12000000;  // 12 MHz clock frequency
     localparam PWM_FREQ_HZ = 10000;     // 10kHz PWM frequency
+    
     localparam PWM_DIVIDE_RATIO = CLK_FREQ_HZ / PWM_FREQ_HZ;
     localparam PWM_DUTY_ON = PWM_DIVIDE_RATIO * PWM_DUTY_CYCLE / 100;
     localparam PWM_COUNTER_WIDTH = $clog2(PWM_DIVIDE_RATIO);
@@ -38,6 +39,7 @@ module led_glow
     
     always @(posedge clk_i) begin
         
+        // Reset the pwm_counter at the divide ratio
         if(pwm_counter < PWM_DIVIDE_RATIO) begin
             pwm_counter <= pwm_counter + 1;
         end else begin
