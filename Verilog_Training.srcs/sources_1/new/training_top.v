@@ -39,6 +39,12 @@ module training_top(
         .led_o      ( led_o[1]      )
     );
     
-    assign led_o[3:2] = 2'b00;
+    pwm_generator pwm_mod(
+        .clk_i      ( clk_i         ),
+        .enable_i   ( switch_i[1]   ),
+        .pwm_o      ( led_o[2]      )
+    );
+    
+    assign led_o[3] = 1'b0;
     
 endmodule
