@@ -1,6 +1,6 @@
 ## Clock Signals
-set_property -dict { PACKAGE_PIN F14   IOSTANDARD LVCMOS33 } [get_ports { clk_i }]; #IO_L13P_T2_MRCC_15 Sch=uclk
-create_clock -add -name sys_clk_pin -period 83.333 -waveform {0 41.667} [get_ports { clk_i }];
+set_property -dict { PACKAGE_PIN F14   IOSTANDARD LVCMOS33 } [get_ports { sys_clk }]; #IO_L13P_T2_MRCC_15 Sch=uclk
+create_clock -add -name sys_clk_pin -period 83.333 -waveform {0 41.667} [get_ports { sys_clk }];
 
 ## Switches
 set_property -dict { PACKAGE_PIN H14   IOSTANDARD LVCMOS33 } [get_ports { switch_i[0] }]; #IO_L20N_T3_A19_15 Sch=sw[0]
@@ -20,7 +20,12 @@ set_property -dict { PACKAGE_PIN K16   IOSTANDARD LVCMOS33 } [get_ports { button
 set_property -dict { PACKAGE_PIN J16   IOSTANDARD LVCMOS33 } [get_ports { button_i[2] }]; #IO_L19N_T3_A21_VREF_15 Sch=btn[2]
 set_property -dict { PACKAGE_PIN H13   IOSTANDARD LVCMOS33 } [get_ports { button_i[3] }]; #IO_L20P_T3_A20_15 Sch=btn[3]
 
+## ChipKit I2C
+set_property -dict { PACKAGE_PIN J14   IOSTANDARD LVCMOS33 } [get_ports { i2c_scl_io }]; #IO_L24N_T3_RS0_15 Sch=ck_scl
+set_property -dict { PACKAGE_PIN J13   IOSTANDARD LVCMOS33 } [get_ports { i2c_sda_io }]; #IO_L24P_T3_RS1_15 Sch=ck_sda
 
+## Board Reset
+set_property -dict { PACKAGE_PIN C18   IOSTANDARD LVCMOS33 } [get_ports { reset }]; #IO_L11N_T1_SRCC_15
 
 ## Configuration options, can be used for all designs
 set_property BITSTREAM.CONFIG.CONFIGRATE 50 [current_design]
