@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xA2E8A828C4B51D59",
+      "boundary_crc": "0xD91A49B0B8DC9837",
       "device": "xc7s25csga324-1",
       "gen_directory": "../../../../Verilog_Training.gen/sources_1/bd/training_bd",
       "name": "training_bd",
@@ -64,11 +64,6 @@
             "direction": "O"
           }
         }
-      },
-      "i2c_mon": {
-        "mode": "Monitor",
-        "vlnv_bus_definition": "xilinx.com:interface:iic:1.0",
-        "vlnv": "xilinx.com:interface:iic_rtl:1.0"
       }
     },
     "ports": {
@@ -89,6 +84,12 @@
             "value": "12000000"
           }
         }
+      },
+      "i2c_mon_scl_i": {
+        "direction": "I"
+      },
+      "i2c_mon_sda_i": {
+        "direction": "I"
       }
     },
     "components": {
@@ -862,12 +863,6 @@
       }
     },
     "nets": {
-      "Net": {
-        "ports": [
-          "axi_iic_0/scl_i",
-          "iic_monitor_0/i2c_scl_i"
-        ]
-      },
       "axi_iic_0_iic2intc_irpt": {
         "ports": [
           "axi_iic_0/iic2intc_irpt",
@@ -884,6 +879,18 @@
         "ports": [
           "clk_wiz_1/locked",
           "rst_clk_wiz_1_100M/dcm_locked"
+        ]
+      },
+      "i2c_mon_sda_i": {
+        "ports": [
+          "i2c_mon_sda_i",
+          "iic_monitor_0/i2c_sda_i"
+        ]
+      },
+      "i2c_scl_i_0_1": {
+        "ports": [
+          "i2c_mon_scl_i",
+          "iic_monitor_0/i2c_scl_i"
         ]
       },
       "mdm_1_debug_sys_rst": {
@@ -904,7 +911,8 @@
           "microblaze_0_local_memory/LMB_Clk",
           "rst_clk_wiz_1_100M/slowest_sync_clk",
           "axi_iic_0/s_axi_aclk",
-          "microblaze_0_axi_periph/M01_ACLK"
+          "microblaze_0_axi_periph/M01_ACLK",
+          "iic_monitor_0/clk_i"
         ]
       },
       "microblaze_0_intr": {
@@ -917,7 +925,8 @@
         "ports": [
           "reset",
           "reset_inv_0/Op1",
-          "rst_clk_wiz_1_100M/ext_reset_in"
+          "rst_clk_wiz_1_100M/ext_reset_in",
+          "iic_monitor_0/reset_i"
         ]
       },
       "reset_inv_0_Res": {
