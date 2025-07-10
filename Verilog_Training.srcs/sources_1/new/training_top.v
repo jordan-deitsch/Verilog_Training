@@ -82,8 +82,8 @@ module training_top(
         .i2c_sda_o  (i2c_sda_o),
         .i2c_sda_t  (i2c_sda_t),
         
-        .i2c_mon_scl_i (i2c_sda_i),
-        .i2c_mon_sda_i (i2c_sda_i)
+        .i2c_mon_scl_i (i2c_scl_io),
+        .i2c_mon_sda_i (i2c_scl_io)
     );
     
 endmodule

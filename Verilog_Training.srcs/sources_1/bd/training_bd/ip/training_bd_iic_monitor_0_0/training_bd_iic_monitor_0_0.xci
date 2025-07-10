@@ -8,7 +8,27 @@
     "gen_directory": "../../../../../../Verilog_Training.gen/sources_1/bd/training_bd/ip/training_bd_iic_monitor_0_0",
     "parameters": {
       "component_parameters": {
+        "T_BUF": [ { "value": "0x0000003C", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
+        "T_HDSTA": [ { "value": "0x0000000A", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
+        "T_SUSTA": [ { "value": "0x0000000A", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
+        "T_SUSTO": [ { "value": "0x0000000A", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
+        "T_HDDAT_MIN": [ { "value": "0x00000001", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
+        "T_HDDAT_MAX": [ { "value": "0x0000005A", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
+        "T_SUDAT": [ { "value": "0x0000000A", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
+        "T_LOW": [ { "value": "0x00000082", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
+        "T_HIGH": [ { "value": "0x0000003C", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
         "Component_Name": [ { "value": "training_bd_iic_monitor_0_0", "resolve_type": "user", "usage": "all" } ]
+      },
+      "model_parameters": {
+        "T_BUF": [ { "value": "0x0000003C", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
+        "T_HDSTA": [ { "value": "0x0000000A", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
+        "T_SUSTA": [ { "value": "0x0000000A", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
+        "T_SUSTO": [ { "value": "0x0000000A", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
+        "T_HDDAT_MIN": [ { "value": "0x00000001", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
+        "T_HDDAT_MAX": [ { "value": "0x0000005A", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
+        "T_SUDAT": [ { "value": "0x0000000A", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
+        "T_LOW": [ { "value": "0x00000082", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
+        "T_HIGH": [ { "value": "0x0000003C", "resolve_type": "generated", "format": "bitString", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "spartan7" } ],
