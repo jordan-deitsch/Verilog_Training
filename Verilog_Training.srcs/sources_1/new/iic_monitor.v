@@ -34,7 +34,13 @@ module iic_monitor
     input wire clk_i,
     input wire reset_i,
     input wire i2c_scl_i,
-    input wire i2c_sda_i
+    input wire i2c_sda_i,
+    
+    output wire         ack_o,
+    output wire [7:0]   address_o,
+    output wire [7:0]   data_o,
+    output wire [3:0]   state_o,
+    output wire [31:0]  error_o
 );
     
     // IIC States
@@ -70,8 +76,11 @@ module iic_monitor
 
     
     // Track minimum delay times of IIC protocol and signal edges
-    reg [31:0] scl_delay_counter    = 32'h0;
-    reg [31:0] sda_delay_counter    = 32'h0;
+    reg [31:0] scl_delay_counter        = 32'h0;
+    reg [31:0] sda_delay_counter        = 32'h0;
+    reg [31:0] scl_delay_counter_prev   = 32'h0;
+    reg [31:0] sda_delay_counter_prev   = 32'h0;
+
     reg [1:0] scl_buff              = IIC_IDLE;
     reg [1:0] sda_buff              = IIC_IDLE;
     
@@ -86,6 +95,12 @@ module iic_monitor
     // State machine variables, initialized to STATE_RESET state
     reg [3:0] current_state         = STATE_RESET;
     reg [3:0] next_state            = STATE_IDLE;
+    
+    assign ack_o = ack_bit;
+    assign address_o = device_address;
+    assign data_o = data_byte;
+    assign state_o = current_state;
+    assign error_o = error_reg;
     
     // Update state, input buffers, and counters
     always @(posedge clk_i) begin
@@ -107,13 +122,15 @@ module iic_monitor
             // Reset delay counter when signal transitions
             // Increment unless delay_counter = max_u32
             if(scl_buff[0] != i2c_scl_i) begin
-                scl_delay_counter <= 32'h0;
+                scl_delay_counter       <= 32'h0;
+                scl_delay_counter_prev  <= scl_delay_counter;
             end else if(~scl_delay_counter) begin
                 scl_delay_counter <= scl_delay_counter + 1;
             end
             
             if(sda_buff[0] != i2c_sda_i) begin
-                sda_delay_counter <= 32'h0;
+                sda_delay_counter       <= 32'h0;
+                sda_delay_counter_prev  <= sda_delay_counter;
             end else if(~sda_delay_counter) begin
                 sda_delay_counter <= sda_delay_counter + 1;
             end
@@ -141,7 +158,7 @@ module iic_monitor
     begin
         // START condition, go to START
         if(sda_buff == FALLING_EDGE) begin
-            if(scl_delay_counter < T_BUF) begin
+            if(sda_delay_counter_prev < T_BUF) begin
                 next_state <= STATE_ERROR;
                 error_reg <= error_reg | T_BUF_ERROR_CODE;
             end else begin
@@ -192,8 +209,8 @@ module iic_monitor
                 next_state <= STATE_HIGH_DATA;
                 
                 // Set state output variables
-                data_byte   <= {7'h0, i2c_sda_i};   // Update data_byte with next bit
-                bit_counter <= bit_counter + 1;     // Increment bit_counter
+                data_byte   <= {7'h0, i2c_sda_i};   // Update data_byte with first bit when leaving state
+                bit_counter <= bit_counter + 1;     // Increment bit_counter when leaving state
             end
         end        
     end
