@@ -1,0 +1,26 @@
+module super_func;
+int n;
+parameter MAX = 10;
+initial
+  begin
+      $display("The factorials from 1 to %d", MAX);
+      for (n=0; n<=MAX; n=n+1)
+        $display("%d! = %d", n, factorial(n));
+	
+      $display("And again, the factorials from 1 to %d", MAX);
+      v_factorial(MAX);
+  end	
+
+function automatic int factorial (int n);
+  if (n==0) return (1); // factorial 0 is 1
+  else return (factorial(n-1)*n);
+endfunction
+
+function automatic void v_factorial (int m);
+  for (n=0; n<=m; n=n+1)
+     $display("%d! = %d", n, factorial(n));
+endfunction
+
+
+
+endmodule

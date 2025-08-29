@@ -1,0 +1,3 @@
+rm -rf database_test
+mkdir database_test
+cp -r examples/router_sv_analysis/* database_test/.

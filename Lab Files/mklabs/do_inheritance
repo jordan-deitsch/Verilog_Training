@@ -1,0 +1,24 @@
+
+echo ""
+echo "Moving inheritance directory to old_inheritance"
+mv inheritance old_inheritance
+
+echo ""
+echo "Creating lab and .solution directories"
+mkdir inheritance
+mkdir inheritance/.solution
+
+echo ""
+echo "Copying examples/router_sv_analysis/ to inheritance/ and inheritance/.solution"
+cp -r examples/router_sv_analysis/* inheritance/.
+cp -r examples/router_sv_analysis/* inheritance/.solution/.
+
+echo ""
+echo "Copying old_inheritance files txn/Packet.svh to inheritance dir"
+echo "if any of these files were modified, then changes will need to be made by hand"
+cp -f old_inheritance/txn/Packet.svh   inheritance/txn/.
+
+echo ""
+echo "Remove old_inheritance directory when done"
+echo ""
+

@@ -1,0 +1,28 @@
+
+echo ""
+echo "Moving polymorph directory to old_polymorph"
+mv polymorph old_polymorph
+
+echo ""
+echo "Creating lab and .solution directories"
+mkdir polymorph
+mkdir polymorph/.solution
+
+echo ""
+echo "Copying examples/router_sv_analysis/ to polymorph/ and polymorph/.solution"
+cp -r examples/router_sv_analysis/* polymorph/.
+cp -r examples/router_sv_analysis/* polymorph/.solution/.
+
+echo ""
+echo "Copying old_polymorph files txn/Packet_base.svh, env/router_env.svh, stim/stim_gen.svh,"
+echo "xactors/rtr_driver.svh to polymorph dir"
+echo "if any of these files were modified, then changes will need to be made by hand"
+cp -f old_polymorph/txn/Packet_base.svh     polymorph/txn/.
+cp -f old_polymorph/env/router_env.svh      polymorph/env/.
+cp -f old_polymorph/stim/stim_gen.svh       polymorph/stim/.
+cp -f old_polymorph/xactors/rtr_driver.svh  polymorph/xactors/.
+
+echo ""
+echo "Remove old_polymorph directory when done"
+echo ""
+

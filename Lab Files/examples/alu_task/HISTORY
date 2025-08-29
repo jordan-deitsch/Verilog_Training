@@ -1,0 +1,18 @@
+
+alu_task_v1
+initial version
+
+alu_task_v2
+ - modified to use dual top
+
+alu_task_v3
+ - modified alu_bfm to not use transactions
+
+alu_task_v4
+ - modified to not use virtual interface
+
+alu_task_v5
+ - renamed bfm task "monitor" to "monitor_alu"
+
+alu_task_v6
+ - fixed running with vcs

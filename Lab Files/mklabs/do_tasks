@@ -1,0 +1,24 @@
+
+echo ""
+echo "Moving tasks directory to old_tasks"
+mv tasks old_tasks
+
+echo ""
+echo "Creating lab and .solution directories"
+mkdir tasks
+mkdir tasks/.solution
+
+echo ""
+echo "Copying examples/wb_mem_tsk/ to tasks/ and tasks/.solution"
+cp -r examples/wb_mem_tsk/* tasks/.
+cp -r examples/wb_mem_tsk/* tasks/.solution/.
+
+echo ""
+echo "Copying old_tasks files test.sv to tasks dir"
+echo "if any of these files were modified, then changes will need to be made by hand"
+cp -f old_tasks/test.sv   tasks/.
+
+echo ""
+echo "Remove old_tasks directory when done"
+echo ""
+

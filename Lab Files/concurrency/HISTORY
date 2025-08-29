@@ -1,0 +1,50 @@
+wb_mem_con_v1
+ - initial version
+
+wb_mem_con_v2
+ - fixed run.do
+ - changed wb_bus_if to wb_bfm
+
+wb_mem_con_v3
+ - removed driver
+ -
+
+wb_mem_con_v4
+ - moved monitor and generate stimulus from wishbone pkg to test module
+ - removed virtual interface
+
+wb_mem_con_v5
+ - added use of ready_to_finish() task
+
+wb_mem_con_v6
+ - removed the default value settings in the wb_txn struct in wishbone pkg - was vcs error
+
+wb_mem_con_v7
+ - fixed Makefile for vcs 64bit
+ - fixed bug in slave strobe select in wishbone IF
+
+wb_mem_con_v8
+ - fixed debug arguments for vcs
+ - fixed vcs targets
+
+v9
+ - added xcelium targets to makefile
+ - changed wb_txn struct so data field is a vector instead of an array so can make the struct packed for cadence
+ - fixed race condition in wb_bfm_syscon_if
+ - modified wb_bfm_syscon_if methods for modified wb_txn
+
+v10
+ - in test.sv monitor() task questasim doesn't allow a direct assignment to the txn_type field of the wb_txn so
+   had to fix with a temp variable.  vcs and xcelium were OK with it.  I (Mike) think it is a bug.
+
+v11
+ - changed the type of the enum for wb_txn_t to integer to satisfy questasim which when the struct is packed won't work with the default type of int. sigh....  vcs the only simulator not giving me issues on all this.
+
+v12
+- wishbone_pkg.sv was missing the task: ready_to_finish() 
+
+
+
+
+
+

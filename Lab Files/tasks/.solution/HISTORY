@@ -1,0 +1,34 @@
+wb_dma_tsk_v1
+ - initial version
+
+wb_dma_tsk_v2
+ - fix run.do
+ - changed wb_bus_if to wb_bfm
+
+wb_dma_tsk_v3
+ - made dual top
+ - change wb_bfm to not use transaction objects.
+
+wb_dma_tsk_v4
+ - removed use of the virtual interface
+ - moved the tasks from the wishbone pkt to the module test (since not using virtual interfaces)
+
+wb_dma_tsk_v5
+ - changed all tasks to automatic in test.sv to avoid problem with
+    questa 10.2 which required line 34 to be declared as static or automatic
+
+wb_dma_tsk_v6
+ - fixed Makefile for vcs 64bit
+ - fixed slave strobe select in wishbone if bug
+
+wb_dma_tsk_v7
+ - Fixed vcs debug switches
+ - fixed vcs targets
+
+v8
+ - added xcelium targets to makefile
+ - changed wb_txn struct so data field is a vector instead of an array so can make the struct packed for cadence
+ - fixed race condition in wb_bfm_syscon_if
+ - modified wb_bfm_syscon_if methods for modified wb_txn
+
+

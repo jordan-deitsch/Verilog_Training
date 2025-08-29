@@ -1,0 +1,73 @@
+v15 - First UVM version
+
+router_anlysis_v16
+ - VCS compatability added
+ - Changed to use uvm phasing.  removed UVM_USE_OVM_RUN_SEMANTIC flag
+ - removed use of done flag
+
+router_analysis_v17
+ - changed Packet to derive from uvm_sequence_item instead of uvm_transaction
+
+router_analysis_v18
+ - changed Makefile
+
+router_analysis_v19
+ - Race condition discovered in the router and router_bad.  Temp fix with #1;  :-(
+
+router_analysis_v20
+ - changed to dual_top
+ - changed test to default_test
+ - changed stim_gen to main_phase & to generate 1000 transactions
+ - changed coverage_sb to not stop at 100% coverage
+ - changed interface to bfm style
+ - chaged Packet to use pkt_id instead of transaction_id
+ - General cleanup
+
+router_analysis_v21
+ - changed coverage_sb to be a uvm_subscriber
+ - changed the driver to feed the scoreboard not the gen2drv fifos
+
+router_analysis_v22
+ - changed coverage_sb to instantiate coverage object
+ - modifed Makefile with $(DEFINE_FILE_LINE) to remove file name and line number
+   from the output
+
+router_analysis_v23
+ - modified the router_env to use fixed size arrays of `ROUTER_SIZE instead of
+ dynamic arrays.  Made environment lab easier
+ - modified Makefile, run* to not use DEPTH variable
+
+router_analysis_v24
+ - changed Makefile to use pre-compiled UVM library with Questasim by default
+ - changed run.do to always use pre-compiled UVM library with Questasim
+
+router_analysis_v25
+ - changed Makefile to compile DPI into UVM lib
+ - changed run.do & run_bad.do to compile DPI into UVM lib
+
+router_sv_analysis_v26
+ - modified to not be uvm
+
+router_sv_analysis_v27
+ - created a Packet_base class
+router_sv_analysis_v28
+ - modified so that Packet_base class is used for communication (ie mailbox types are
+   now Packet_base) so testbench is more polymorphic
+ - modified Packet to packet and Packet_base to packet_base
+
+router_sv_analysis_v28
+ - modified Packet to packet and Packet_base to packet_base
+ - modified so that packet_base class is used for communication (ie mailbox types are
+   now packet_base) so testbench is more polymorphic
+
+router_sv_analysis_v29
+ - Modified Makefile for vcs 64bit
+
+router_sv_analysis_v30
+ - fixed debug arguments for vcs
+ - fixed vcs targets
+
+v31
+ - added xcelium targets to Makefile
+ - modified test to delay initial block execution to avoid race condition
+

@@ -1,0 +1,22 @@
+
+alu_mailbox_v1
+initial version
+
+alu_mailbox_v2
+ - modified to use dual top
+ - modified alu_bfm to not use transactions
+ - removed driver
+ - fixed result to be an int so get correct results
+
+alu_mailbox_v3
+ - removed use of virtual interface
+ - moved tasks that access bfm out of alu_pkg into test module
+
+alu_mailbox_v4
+ - added use of ready_to_finish() task that waits for completion
+
+alu_mailbox_v5
+ - rename alu bfm task "moniotr" to "monitor_alu"
+
+alu_mailbox_v6
+ - fixed running with vcs

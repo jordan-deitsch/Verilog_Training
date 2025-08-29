@@ -1,0 +1,10 @@
+
+fsm_sva_v1
+- updated testbench to be self checking
+- modified sm to add use of a function and changed some signal names
+- modified opcodes enumerated types in types_pkg
+
+fsm_sva_v2
+- updated Makefile for Xcelium
+
+

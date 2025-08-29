@@ -1,0 +1,127 @@
+wb_mem_trns_v1
+ - initial version
+
+wb_mem_trns_v2
+ - fixed run.do
+ - fixed Makefile for vcs
+ - changed wb_bus_if to wb_bfm
+ - changed v_if to v_wb_bfm
+ - changed mailbox handle names in driver, stim_gen, mem_checker, monitor
+   to either mon_mb or stim_mb since that is what they point to
+
+wb_mem_trns_v3
+ - changed to use ports/exports/tlm fifos instead of mailboxes
+
+wb_mem_trns_v4
+ - changed to use dual top
+ - changed to use env class instead of test
+
+wb_mem_trns_v5
+ - change wb_bfm to not use transaction objects.  Changed driver & monitor too.
+
+wb_mem_trns_v6f
+ - changed back to use test class
+
+wb_mem_v7
+ - changed run_phase to main_phase in stim_gen
+ - changed from using in_flight to num_ops parameter
+
+wb_mem_analysis_v8
+ - changed to use analysis components
+ - added coverage_sb
+
+wb_mem_hier_v9
+ - added wb_std_stim_agent to make hierarchical
+
+wb_mem_hier_v10
+ - reorganized into sub directories and fixed Makefile etc accordingly
+ - created a base class for drivers so can override
+
+wb_mem_hier_v11
+ - added test_params_pkg
+ - added use of wb_config object for virtual interface passing
+
+wb_mem_hier_v12
+ - changed env to use base wishbone agent
+ - added override in tests for wishbone agent
+
+wb_mem_hier_v12
+ - modified bfm master methods to use an argument to determine which
+   bus master bus signals to access
+ - modifed the wishbone bus driver to use wishbone bus master argument with
+   Wishbone agent master ID from test_params_pkg
+ - modified bfm to take 4 wishbone slaves
+
+wb_mem_hier_v13
+ - changed monitor to wb_bfm_monitor
+ - added test_wb_mem_wt_rd
+ - added sequence based wishbone agent wb_master_agent
+ - added sequence driver wb_bfm_driver
+ - added sequence wb_mem_wt_rd_seq
+ - modified coverage_sb to get a better report
+ - fleshed out wb_txn
+ - Added status return on bfm methods
+
+wb_mem_hier_v14
+ - changed name wb_mem_wt_rd_seq to wt_rd_seq
+ - changed test_wb_mem_wt_rd to test_wt_rd
+
+wb_mem_v15
+ - added a reset interface to Wishbone bus to generate reset. Does power-on
+   reset as well as methods for reset and wait for reset done
+ - Added a reset_phase to the base test which resets the bus
+
+wb_mem_v16
+ - added api sequences to wishbone agent
+ - added test_wb_mem_simple
+ - added wb_mem_simple_seq
+ - moved dir wishbone_agent to wishbone_bus
+ - added test_virt_seq and virt_seq for illustration purposes
+
+wb_mem_v17
+ - deleted wishbone_bus, wishbone_mem, directories
+ - Modified Makefile, run.do run_bad.do to compile wishbone related stuff from the common wishbone directory
+ - Modified the Makefile to remove the DEPTH variable
+ - Modified test_params_pkg parameters to be all CAPS.  Other files fixed as needed
+ - modified Makefile with $(DEFINE_FILE_LINE) added to compile to shorten
+   messages
+
+wb_mem_v18
+ - added test_wt_rd and wt_rd_seq
+ - added non sequence based wishbone agent, driver, stimulus
+
+wb_mem_v19
+ - modified run.do
+ - removed use of DEPTH from run*
+
+wb_mem_v20
+ - added wb_bfm_driver base class override into wb_env build to be compatible with shared wishbone_v9
+
+wb_mem_v21
+ - changed Makefile & run.do to compile DPI into UVM lib
+
+wb_mem_sv_v22
+ - changed to not be UVM
+ - Coverage scoreboard is commented out of this version
+
+wb_mem_sv_v23
+ - added methods to stim_gen, driver, monitor, scoreboard to set the mailbox
+ properties and virtual interface properties with a method.
+ - modified the env class to use the methods.
+ - modified the wishbone interface to use wb transaction type enumerations in
+ the monitor task
+ - fixed run.do and run_bad.do
+
+wb_mem_sv_v24
+ - fixed bug in wb_syscon_bfm_if to properly select slave stb signals
+ - Fixed Makefile for vcs 64bit
+
+wb_mem_sv_v25
+ - fixed debug arguments for vcs
+ - fixed vcs targets
+ - fixed bad memory - removed uvm stuff
+
+wb_mem_sv_v26
+ - updated Makefile for irun and xrun
+ - fixed race condition for xrun in wb_bfm_syscon_if
+

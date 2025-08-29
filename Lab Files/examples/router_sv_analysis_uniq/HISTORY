@@ -1,0 +1,15 @@
+v1 - Branched from router_analysys_v28 with following
+ - Changed Packet.svh to add constraint for unique payload values
+ - Changed Packet.svh to verify unique payload values in compare()
+
+v2 -
+  - Modified Makefile for vcs 64bit
+
+v3
+ - fixed debug arguments for vcs
+ - fixed vcs targets
+v4
+ - updated Makefile for xrun
+ - modified test.sv to add delay to intial block to avoid race with initial block in top
+
+

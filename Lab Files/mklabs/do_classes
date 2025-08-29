@@ -1,0 +1,25 @@
+
+echo ""
+echo "Moving classes directory to old_classes"
+mv classes old_classes
+
+echo ""
+echo "Creating lab and .solution directories"
+mkdir classes
+mkdir classes/.solution
+
+echo ""
+echo "Copying examples/wb_mem_sv/ to classes/ and classes/.solution"
+cp -r examples/wb_mem_sv/* classes/.
+cp -r examples/wb_mem_sv/* classes/.solution/.
+
+echo ""
+echo "Copying old_classes files env/wb_env.svh, top_modules/test.sv to classes dir"
+echo "if any of these files were modified, then changes will need to be made by hand"
+cp -f old_classes/env/wb_env.svh        classes/env/.
+cp -f old_classes/top_modules/test.sv   classes/top_modules/.
+
+echo ""
+echo "Remove old_classes directory when done"
+echo ""
+

@@ -1,0 +1,25 @@
+
+echo ""
+echo "Moving randomization directory to old_randomization"
+mv randomization old_randomization
+
+echo ""
+echo "Creating lab and .solution directories"
+mkdir randomization
+mkdir randomization/.solution
+
+echo ""
+echo "Copying examples/router_sv_analysis_uniq/ to randomization/ and randomization/.solution"
+cp -r examples/router_sv_analysis_uniq/* randomization/.
+cp -r examples/router_sv_analysis_uniq/* randomization/.solution/.
+
+echo ""
+echo "Copying old_randomization files txn/Packet.svh, stim/stim_gen.svh to randomization dir"
+echo "if any of these files were modified, then changes will need to be made by hand"
+cp -f old_randomization/txn/Packet.svh      randomization/txn/.
+cp -f old_randomization/stim/stim_gen.svh   randomization/stim/.
+
+echo ""
+echo "Remove old_randomization directory when done"
+echo ""
+

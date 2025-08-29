@@ -1,0 +1,25 @@
+
+echo ""
+echo "Moving concurrency directory to old_concurrency"
+mv concurrency old_concurrency
+
+echo ""
+echo "Creating lab and .solution directories"
+mkdir concurrency
+mkdir concurrency/.solution
+
+echo ""
+echo "Copying examples/wb_mem_con/ to concurrency/ and concurrency/.solution"
+cp -r examples/wb_mem_con/* concurrency/.
+cp -r examples/wb_mem_con/* concurrency/.solution/.
+
+echo ""
+echo "Copying old_concurrency files wishbone_pkg.sv, test.sv to concurrency dir"
+echo "if any of these files were modified, then changes will need to be made by hand"
+cp -f old_concurrency/wishbone_pkg.sv   concurrency/.
+cp -f old_concurrency/test.sv           concurrency/.
+
+echo ""
+echo "Remove old_concurrency directory when done"
+echo ""
+

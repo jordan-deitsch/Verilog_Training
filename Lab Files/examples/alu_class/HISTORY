@@ -1,0 +1,30 @@
+alu_class_v1
+original version
+
+alu_class_v2
+ - changed bfm interface to not use transaction objects,  driver/monitor effected
+
+alu_class_v3
+ - modified to use dual top
+ - removed stim_gen & driver
+
+alu_class_v4
+ - removed the use of a virtual interface for stimulus generation
+
+alu_class_v5
+ - added use of ready_to_finish() task
+
+alu_class_v6
+ - modified the alu_bfm_if instance name to be a_bfm_if instead of alu_bfm_if
+   modified top and test accordingly
+
+alu_class_v7
+ - added back in stim_gen and driver and mailbox
+ - added build, connect methods to environement
+
+alu_class_v8
+ - rename alu bfm task "moniotr" to "monitor_alu"
+
+alu_class_v9
+ - fixed running with vcs
+

@@ -1,0 +1,44 @@
+************************************************************
+*****                                                  *****
+*****              SystemVerilog Assertions            *****
+*****                                                  *****
+*****               Copyright (c) Hardent              *****
+*****                                                  *****
+************************************************************
+#### To prepare the labs for a class:
+
+ 1. tar -zxvf <path to file_name.tgz>
+ (or first gunzip <path to file_name.tgz>
+ then tar -xvf <path to file_name.tar> if -z option unsupported)
+
+#### Database checkout
+
+   $ cd database_test
+
+------For Questasim:
+   $ make
+
+------For VCS
+   $ make vcs
+
+------For Xceilium
+   $ make xrun
+
+------For Vivado
+   $ make viv
+
+The output should end with messages like the following. Your simulator may reformat the text a little
+but the messages should be very similar:
+
+# 5 state machine:  illegal op received
+# 135 Testbench:  Did a single write:  Address = 00000100, data = 000000aa
+# 195 Testbench:  Did a single write:  Address = 00000030, data = 000000bb
+# 315 Testbench:  Did a block  write:  Start address = 00000040, start data = 00000a10
+# 450 Testbench:  Read passed: Address = 00000100, data = 000000aa
+# 590 Testbench:  Read passed: Address = 00000030, data = 000000bb
+# 730 Testbench:  Read passed: Address = 00000040, data = 00000a10
+# 870 Testbench:  Read passed: Address = 00000041, data = 00000a11
+# 1010 Testbench:  Read passed: Address = 00000042, data = 00000a12
+# 1150 Testbench:  Read passed: Address = 00000043, data = 00000a13
+
+

@@ -1,0 +1,28 @@
+WB_MEM_DS_v1
+ - initial version
+
+WB_MEM_DS_v2
+ - fixed run.do
+ - changed name of wb_bus_if to wb_dma
+ - other general cleanup
+
+wb_mem_ds_v3
+ - Added test module and moved test into it
+
+wb_mem_ds_v4
+ - moved the shadow_mem out of the initial block into the module scope
+
+wb_mem_ds_v5
+ - fixed slave strobe sel bug in wishbone if
+ - fixed Makefile for vcs 64bit
+
+wb_mem_ds_v6
+ - fixed debug arguments for vcs
+ - fixed vcs targets
+
+wb_mem_ds_v7
+ - added xcelium targets to makefile
+ - changed wb_txn struct so data field is a vector instead of an array so can make the struct packed for cadence
+ - fixed race condition in wb_bfm_syscon_if
+ - modified wb_bfm_syscon_if methods for modified wb_txn
+

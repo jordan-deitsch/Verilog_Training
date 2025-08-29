@@ -1,0 +1,24 @@
+
+echo ""
+echo "Moving fsm directory to old_fsm"
+mv fsm old_fsm
+
+echo ""
+echo "Creating lab and .solution directories"
+mkdir fsm
+mkdir fsm/.solution
+
+echo ""
+echo "Copying examples_sva/fsm_sva to fsm/ and fsm/.solution"
+cp -r examples_sva/fsm_sva/* fsm/.
+cp -r examples_sva/fsm_sva/* fsm/.solution/.
+
+echo ""
+echo "Copying old_fsm files sva_container.sv to fsm dir"
+echo "if any of these files were modified, then changes will need to be made by hand"
+cp -f old_fsm/sva_container.sv        fsm/.
+
+echo ""
+echo "Remove old_fsm_sv directory when done"
+echo ""
+

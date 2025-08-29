@@ -1,0 +1,25 @@
+
+echo ""
+echo "Moving coverage directory to old_coverage"
+mv coverage old_coverage
+
+echo ""
+echo "Creating lab and .solution directories"
+mkdir coverage
+mkdir coverage/.solution
+
+echo ""
+echo "Copying examples/router_sv_analysis_uniq/ to coverage/ and coverage/.solution"
+cp -r examples/router_sv_analysis_uniq/* coverage/.
+cp -r examples/router_sv_analysis_uniq/* coverage/.solution/.
+
+echo ""
+echo "Copying old_coverage files analysis/router_coverage.svh, analysis/coverage_sb.svh to coverage dir"
+echo "if any of these files were modified, then changes will need to be made by hand"
+cp -f old_coverage/analysis/router_coverage.svh   coverage/analysis/.
+cp -f old_coverage/analysis/coverage_sb.svh       coverage/analysis/.
+
+echo ""
+echo "Remove old_coverage directory when done"
+echo ""
+

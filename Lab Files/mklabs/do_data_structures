@@ -1,0 +1,25 @@
+
+echo ""
+echo "Moving data_structures directory to old_data_structures"
+mv data_structures old_data_structures
+
+echo ""
+echo "Creating lab and .solution directories"
+mkdir data_structures
+mkdir data_structures/.solution
+
+echo ""
+echo "Copying examples/wb_mem_ds/ to data_structures/ and data_structures/.solution"
+cp -r examples/wb_mem_ds/* data_structures/.
+cp -r examples/wb_mem_ds/* data_structures/.solution/.
+
+echo ""
+echo "Copying old_data_structures files wishbone_pkg.sv, test.sv to data_structures dir"
+echo "if any of these files were modified, then changes will need to be made by hand"
+cp -f old_data_structures/wishbone_pkg.sv   data_structures/.
+cp -f old_data_structures/test.sv           data_structures/.
+
+echo ""
+echo "Remove old_data_structures directory when done"
+echo ""
+
